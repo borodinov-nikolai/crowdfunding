@@ -1,0 +1,80 @@
+
+
+
+.root {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    padding-bottom: 60px;
+}
+
+
+
+.inner {
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    grid-template-rows: auto;
+}
+
+
+.title {
+    grid-column: 1/3;
+    grid-row: 1;
+    margin-top: 42px;
+    font-size: 40px;
+    line-height: 40px;
+    font-weight: 700;
+}
+
+.description {
+    max-width: 924px;
+    margin-top: 38px;
+    grid-column: 1/3;
+    grid-row: 2;
+    font-size: 20px;
+    line-height: 25px;
+    font-weight: 300;
+}
+
+.filters {
+    margin-top: 36px;
+    width: 62px;
+    height: 202px;
+    border-radius: 30px;
+    background-color: #D9D9D9;
+    grid-column: 1;
+    grid-row: 3;
+
+
+}
+
+.cardsHolder {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 56px;
+    margin-top: 36px;
+    margin-left: 47px;
+    grid-column: 2;
+    grid-row: 3;
+}
+
+
+.card {
+    cursor: pointer;
+    width: 272px;
+    height: 283px;
+    border-radius: 30px;
+    background-color: #D9D9D9;
+}
+
+.image {
+    position: absolute;
+    left: 0;
+    bottom: -100px;
+    height: 800px;
+    width: auto;
+    z-index: -1;
+
+}
+

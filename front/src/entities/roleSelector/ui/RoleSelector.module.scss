@@ -1,0 +1,90 @@
+.root {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.title  {
+    margin-top: 44px;
+    font-size: 40px;
+    line-height: 24px;
+    font-weight: 700;
+}
+
+
+.window {
+    margin: 0 auto;
+    margin-top: 54px;
+    position: relative;
+    width: 829px;
+    height: 367px;
+}
+
+.window_backLayer {
+position: absolute;
+width: 100%;
+height: 100%;
+top: 0;
+left: 0;
+background-color: #27187E;
+border-radius: 25px;
+}
+
+.window_frontLayer {
+ padding: 58px 50px;
+position: absolute;
+width: 100%;
+height: 100%;
+top: 19px;
+right: 26px;
+background-color: #AEB8FE;
+border-radius: 25px;
+}
+
+.window_title {
+    text-align: center;
+    font-size: 40px;
+    line-height: 40px;
+    font-weight: 500;
+}
+
+.window_buttons {
+    margin-top: 64px;
+    display: flex;
+    justify-content: space-between;
+
+    button {
+        cursor: pointer;
+      width: 300px;
+      height: 134px;
+      border-radius: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 40px;
+      line-height: 40px;
+      font-weight: 600;
+      border: none;
+      transform: scale(1);
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+}
+
+
+.imgTop {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.imgBottom {
+    position: absolute;
+    bottom: -100px;
+    left: 0;
+}

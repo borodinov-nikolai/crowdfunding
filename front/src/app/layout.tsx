@@ -1,8 +1,17 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Comfortaa } from "next/font/google";
+import { Montserrat } from "next/font/google";
+import { Sora } from "next/font/google";
+import { Roboto } from "next/font/google";
+import '../shared/styles/global.scss';
+import { Header } from "@/src/widgets/header";
+import StoreProvider from "@/src/shared/configs/storeProvider";
+import { Footer } from "../widgets/footer";
 
-
-const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto({subsets:['latin'], weight:['400','500','700','900'], variable:'--font-roboto'});
+const comfortaa = Comfortaa({ subsets: ['latin'], variable:'--font-comfortaa'});
+const sora = Sora({ subsets: ['latin'], variable:'--font-sora'});
+const montserrat = Montserrat({ subsets: ['latin']});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +25,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body id='__next' className={inter.className}>{children}</body>
+      <body id='__next' className={[comfortaa.variable, montserrat.className, sora.variable, roboto.variable].join(' ')}>
+        <StoreProvider>
+        <Header/>
+        {children}
+        <Footer/>
+        </StoreProvider>
+        </body>
     </html>
   );
 }
