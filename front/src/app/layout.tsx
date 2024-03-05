@@ -7,6 +7,7 @@ import '../shared/styles/global.scss';
 import { Header } from "@/src/widgets/header";
 import StoreProvider from "@/src/shared/configs/storeProvider";
 import { Footer } from "../widgets/footer";
+import { Questions } from "../entities/questions";
 
 const roboto = Roboto({subsets:['latin'], weight:['400','500','700','900'], variable:'--font-roboto'});
 const comfortaa = Comfortaa({ subsets: ['latin'], variable:'--font-comfortaa'});
@@ -29,6 +30,7 @@ export default function RootLayout({
         <StoreProvider>
         <Header/>
         {children}
+        <Questions/>
         <Footer/>
         </StoreProvider>
         </body>

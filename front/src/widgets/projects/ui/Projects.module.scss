@@ -6,11 +6,13 @@
     min-height: 100vh;
     width: 100%;
     padding-bottom: 60px;
+    overflow: hidden;
 }
 
 
 
 .inner {
+    padding: 0 12px;
     display: grid;
     grid-template-columns: repeat(3, max-content);
     grid-template-rows: auto;
@@ -37,6 +39,12 @@
 }
 
 .filters {
+    margin-left: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 26px;
     margin-top: 36px;
     width: 62px;
     height: 202px;
@@ -44,8 +52,13 @@
     background-color: #D9D9D9;
     grid-column: 1;
     grid-row: 3;
+    
 
 
+}
+
+.filtersItem {
+    cursor: pointer;
 }
 
 .cardsHolder {
@@ -61,11 +74,115 @@
 
 
 .card {
-    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
     width: 272px;
     height: 283px;
     border-radius: 30px;
     background-color: #D9D9D9;
+}
+
+.cardImage {
+    margin-top: -10px;
+    display: block;
+    align-self: center;
+    width: 236px;
+    height: 242px;
+}
+
+.progress {
+    margin-left: 20px;
+    margin-top: -10px;
+    align-self: center;
+}
+
+.progressBar {
+width: 185px;
+height: 13px;
+background-color: white;
+border-radius: 40px;
+}
+
+
+.progressCounter {
+    margin-top: 4px;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.cardLink {
+    position: absolute;
+    right: 26px;
+    bottom: 9px;
+    font-size: 11px;
+    line-height: 12px;
+    color: #27187E;
+    align-self: flex-end;
+    border-bottom: 1px solid #27187E;
+}
+
+.favoritesIcon {
+    cursor: pointer;
+position: absolute;
+width: 27px;
+height: 27px;
+top: 18px;
+right: 18px;
+}
+
+.coinsIcon{
+    position: absolute;
+    left: -45px;
+    bottom: 22px;
+}
+
+.cardButton {
+    cursor: pointer;
+    margin-top: -20px;
+    align-self: center;
+    width: 199px;
+    height: 34px;
+    border: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 700;
+    background-color: #FF8600;
+    border-radius: 30px;
+    transition: background 0.3s ease;
+    &:hover {
+        background-color: #fc9c2f;
+    }
+}
+
+.pagination {
+    cursor: pointer;
+    margin-top: 38px;
+    grid-column: 2;
+    grid-row: 4;
+    justify-self: center;
+    font-size: 20px;
+    line-height: 21px;
+    font-weight: 300;
+    color: #27187E;
+    border-bottom: 1px solid #27187E;
+}
+
+.navigation {
+    cursor: pointer;
+    margin-top: 32px;
+    width: 176px;
+    grid-column: 3;
+    grid-row: 1/4;
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+    align-items: center;
 }
 
 .image {
