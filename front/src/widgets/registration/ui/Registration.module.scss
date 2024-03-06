@@ -25,6 +25,19 @@
     font-weight: 700;
 }
 
+.description {
+    font-family: var(--font-sora);
+    margin-top: 27px;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 600;
+
+}
+
+.form {
+    margin-top: 12px;
+}
+
 .imageHolder {
     display: flex;
     width: 100%;

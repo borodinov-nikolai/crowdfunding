@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './Registration.module.scss'
 import Image from 'next/image'
+import { RegistrationForm } from '@/src/features/registrationForm'
 
 const Registration = () => {
   return (
@@ -8,6 +9,8 @@ const Registration = () => {
         <div className={[styles.inner, ' container'].join(' ')} >
             <div className={styles.form} >
                 <h1 className={styles.title} >Регистрация</h1>
+                <p className={styles.description} >Давайте познакомимся</p>
+                <div className={styles.form} ><RegistrationForm/></div>
             </div>
             <div className={styles.imageHolder} >
                 <div className={styles.image}>

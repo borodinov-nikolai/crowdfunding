@@ -8,6 +8,7 @@ import { Header } from "@/src/widgets/header";
 import StoreProvider from "@/src/shared/configs/storeProvider";
 import { Footer } from "../widgets/footer";
 import { Questions } from "../entities/questions";
+import { CheckAuth } from "../features/checkAuth";
 
 const roboto = Roboto({subsets:['latin'], weight:['400','500','700','900'], variable:'--font-roboto'});
 const comfortaa = Comfortaa({ subsets: ['latin'], variable:'--font-comfortaa'});
@@ -26,14 +27,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body id='__next' className={[comfortaa.variable, montserrat.className, sora.variable, roboto.variable].join(' ')}>
         <StoreProvider>
+      <body id='__next' className={[comfortaa.variable, montserrat.className, sora.variable, roboto.variable].join(' ')}>
+        <CheckAuth>
         <Header/>
         {children}
         <Questions/>
         <Footer/>
-        </StoreProvider>
+        </CheckAuth>
         </body>
+        </StoreProvider>
     </html>
   );
 }

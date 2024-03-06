@@ -3,16 +3,23 @@ import React from 'react';
 import styles from './Header.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
-import { RiCheckLine } from "react-icons/ri";
 import { usePathname } from 'next/navigation';
+import dynamic from 'next/dynamic';
+// import Account from './components/account';
+const Account = dynamic(() => import('./components/account'), { ssr: false })
+
 
 const Header = () => {
-  const pathname = usePathname()
+  const pathname = usePathname();
+
+
+
+
   return (
     <header className={styles.root} >
         <div className={[styles.inner, ' container'].join(' ')} >
    
-            <Link href={'/'} >
+           <Link href={'/'} >
               <div className={styles.logo}>
                 <Image src={'/images/logo.png'} width={40} height={40} alt='logo' />
                 <p>ITmergehub</p>
@@ -27,20 +34,11 @@ const Header = () => {
               </ul>
             </div>
 
-            <div className={styles.account} >
-             <Link href={'#'} >
-                <div className={styles.signIn} >
-                  <p>Войти</p>
-                  <RiCheckLine/>
-                </div>
-              </Link>
-              { !pathname.includes('/sign-up') && <Link href={'/sign-up'} >
-                <div className={styles.signUp} >Регистрация</div>
-              </Link>}
-              <Link href={'/account'} >
-                <div><Image src={'/images/account.png'} width={42} height={42} alt='account image'/></div>
-              </Link>
-            </div>
+        
+
+           <div className={styles.accountHolder} ><Account/></div>
+
+           
      
         </div>
         </header>

@@ -1,4 +1,4 @@
-import { AccountMenu } from '@/src/entities/accountMenu'
+import { AccountMenu } from '@/src/features/accountMenu'
 import React from 'react'
 
 

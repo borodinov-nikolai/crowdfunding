@@ -1,8 +1,12 @@
+'use client'
 import React from 'react'
 import styles from './AccountMenu.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useGetUserQuery } from '@/src/entities/user'
+
 const AccountMenu = () => {
+  const {data} = useGetUserQuery()
   return (
     <div className={styles.root} >
       <div className={[styles.inner, ' container'].join(' ')} >
@@ -10,6 +14,7 @@ const AccountMenu = () => {
 
       <div className={styles.content} >
         <Image className={styles.avatar_img}  src={'/images/avatar.png'} width={184} height={174} alt='avatar image'/>
+        <div className={styles.username} >{data?.login}</div>
         <div className={styles.menu} >
           <Link href={'#'} >
             <div className={styles.menuItem} >

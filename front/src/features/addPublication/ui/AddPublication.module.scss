@@ -38,12 +38,12 @@
     justify-content: center;
     align-items: center;
     gap:6px;
-    background-color: #758BFD;
+    background-color: var(--btn-primary-bg);
     display: flex;
     border: none;
     border-radius: 40px;
     &:hover {
-        background-color: #8ea0ff;
+        background-color: var(--btn-primary-bg-hover);
     }
 
     svg {
