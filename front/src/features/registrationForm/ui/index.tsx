@@ -67,7 +67,7 @@ const Registration = () => {
             <div className={styles.form_item} >
               <label htmlFor='login' className={styles.label}>Введите Логин</label>
                <div className={styles.input} >
-                 <input type="text" id='login' {...register('login', { required: "это поле обязательно",  minLength: { value: 4, message: 'длина должна быть не менее 4 символов' } })} />
+                 <input placeholder='Логин' type="text" id='login' {...register('login', { required: "это поле обязательно",  minLength: { value: 4, message: 'длина должна быть не менее 4 символов' } })} />
                               {errors.login && <span className={styles.error} >{errors.login?.message}</span>}
                </div>
             </div>
@@ -75,7 +75,7 @@ const Registration = () => {
             <div className={styles.form_item} >
               <label htmlFor='email' className={styles.label} >Введите Почту</label>
               <div className={styles.input} >
-                <input type="text" id='email'  {...register('email', { required: "это поле обязательно", pattern: { value: /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/, message: 'пожалуйста введите корректный email' } })}/>
+                <input placeholder='Почта' type="text" id='email'  {...register('email', { required: "это поле обязательно", pattern: { value: /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/, message: 'пожалуйста введите корректный email' } })}/>
                 {errors.email && <span className={styles.error} >{errors.email?.message}</span>}
               </div>
             </div>
@@ -83,7 +83,7 @@ const Registration = () => {
             <div className={styles.form_item} >
               <label htmlFor='password' className={styles.label}>Введите Пароль</label>
                 <div className={styles.input} >
-                  <input type='password' id='password' {...register('password', { required: "это поле обязательно", minLength: { value: 4, message: 'длина должна быть не менее 4 символов' }, maxLength: { value: 8, message: 'длина должна быть не более 8 символов' } })} />
+                  <input placeholder='Пароль' type='password' id='password' {...register('password', { required: "это поле обязательно", minLength: { value: 4, message: 'длина должна быть не менее 4 символов' }, maxLength: { value: 8, message: 'длина должна быть не более 8 символов' } })} />
                   {errors.password && <span className={styles.error} >{errors.password?.message}</span>}
                 </div>
        
