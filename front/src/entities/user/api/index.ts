@@ -10,6 +10,8 @@ interface User {
   description?: string
   [key:string]: any
 }
+
+
 const token = typeof window !== 'undefined' && localStorage.getItem('jwt')
 const extendedApi = emptySplitApi.injectEndpoints({
   endpoints: (build) => ({

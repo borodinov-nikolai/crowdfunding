@@ -4,14 +4,12 @@ import styles from './Header.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import dynamic from 'next/dynamic';
-// import Account from './components/account';
-const Account = dynamic(() => import('./components/account'), { ssr: false })
+import Account from './components/account';
+
 
 
 const Header = () => {
   const pathname = usePathname();
-
 
 
 
