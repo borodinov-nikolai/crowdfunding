@@ -1,25 +1,20 @@
 import { emptySplitApi } from "@/src/shared/configs/rtk_base"
+import { IUser } from "../interfaces/user"
 
 
 
-interface User {
-  id: number
-  email:string
-  login: string
-  role: 'ADMIN'| 'CUSTOMER'| "COMPANY"
-  description?: string
-  [key:string]: any
-}
+
 
 
 const token = typeof window !== 'undefined' && localStorage.getItem('jwt')
 const extendedApi = emptySplitApi.injectEndpoints({
   endpoints: (build) => ({
-    getUser : build.query<User, void>({
+    getUser : build.query<IUser, void>({
       query: ()=> '/auth/me',
       providesTags:['User']
     })
   }),
+
   overrideExisting: false,
 })
 

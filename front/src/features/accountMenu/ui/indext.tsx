@@ -4,9 +4,20 @@ import styles from './AccountMenu.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useGetUserQuery } from '@/src/entities/user'
+import { useSignOutMutation } from '../api'
+import { useRouter } from 'next/navigation'
+
 
 const AccountMenu = () => {
+  const router = useRouter()
   const {data} = useGetUserQuery()
+  const [signOut] = useSignOutMutation()
+
+  const logout = ()=> {
+         signOut()
+         localStorage.removeItem('jwt')
+          router.replace('/')
+  }
   return (
     <div className={styles.root} >
       <div className={[styles.inner, ' container'].join(' ')} >
@@ -34,10 +45,10 @@ const AccountMenu = () => {
                 <p>Мои публикации</p>
             </div>
           </Link>
-          <Link href={'#'} >
+          <Link onClick={logout} href={'#'} >
             <div className={styles.menuItem} >
               <Image src={'/images/account_menu_icon4.png'} width={48} height={43} alt="account menu icon" />
-                <p>Кошелек?</p>
+                <p>Выйти</p>
             </div>
           </Link>
         </div>

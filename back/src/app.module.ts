@@ -5,6 +5,7 @@ import { DbModule } from './db/db.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { jwtConfig } from 'configs/jwt.config';
+import { ProjectsModule } from './projects/projects.module';
 
 @Module({
   imports: [
@@ -14,7 +15,8 @@ import { jwtConfig } from 'configs/jwt.config';
     JwtModule.register(jwtConfig),
     DbModule,
     UsersModule,
-    AuthModule
+    AuthModule,
+    ProjectsModule
   ],
   controllers: [],
   exports: [],

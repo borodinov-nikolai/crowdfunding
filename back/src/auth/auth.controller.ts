@@ -52,7 +52,7 @@ export class AuthController {
     return this.authService.signIn(body, res);
   }
 
-  @Get('sign-out')
+  @Post('sign-out')
   @ApiOperation({
     summary: 'выйти из аккаунта',
   })

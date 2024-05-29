@@ -10,7 +10,7 @@ export class UsersService {
     if (id) {
       return this.db.user.findUnique({
         where: {
-          id,
+          id
         },
         select: {
           id: true,
@@ -19,7 +19,7 @@ export class UsersService {
           role: true,
           description: true,
           createdAt: true,
-
+          projects: true
         },
       });
     }

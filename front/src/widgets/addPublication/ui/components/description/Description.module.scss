@@ -1,0 +1,16 @@
+
+
+
+
+.root {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.formItem {
+    display: flex;
+    gap: 27px;
+    justify-content: flex-end;
+    align-items: center;
+}

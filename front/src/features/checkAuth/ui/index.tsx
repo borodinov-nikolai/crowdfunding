@@ -6,9 +6,7 @@ import React, { ReactNode } from 'react';
 
 const CheckAuth = ({ children }: { children: ReactNode }) => {
   const {data, isLoading, isSuccess } = useGetUserQuery()
-  console.log(data)
   const location = usePathname()
-
   const forbiddenRoutes = [
     '/account'
   ]

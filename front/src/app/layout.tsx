@@ -9,6 +9,7 @@ import StoreProvider from "@/src/shared/configs/storeProvider";
 import { Footer } from "../widgets/footer";
 import { Questions } from "../entities/questions";
 import { CheckAuth } from "../features/checkAuth";
+import { AntdRegistry } from '@ant-design/nextjs-registry';
 
 const roboto = Roboto({subsets:['latin'], weight:['400','500','700','900'], variable:'--font-roboto'});
 const comfortaa = Comfortaa({ subsets: ['latin'], variable:'--font-comfortaa'});
@@ -27,16 +28,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-        <StoreProvider>
       <body id='__next' className={[comfortaa.variable, montserrat.className, sora.variable, roboto.variable].join(' ')}>
-        <CheckAuth>
-        <Header/>
-        {children}
-        <Questions/>
-        <Footer/>
-        </CheckAuth>
-        </body>
+        <StoreProvider>
+        <AntdRegistry>
+          <CheckAuth>
+          <Header/>
+          {children}
+          <Questions/>
+          <Footer/>
+          </CheckAuth>
+        </AntdRegistry>
         </StoreProvider>
+        </body>
     </html>
   );
 }

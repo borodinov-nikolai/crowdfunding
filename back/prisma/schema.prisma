@@ -20,6 +20,7 @@ model User {
   isActivate Boolean? @default(false)
   banned Boolean? @default(false)
   refreshToken RefreshToken?
+  projects Project[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -38,4 +39,29 @@ model RefreshToken {
    userId Int @unique
    createdAt DateTime @default(now())
    updatedAt DateTime @updatedAt
+}
+
+
+model Project {
+  id Int @id @default(autoincrement())
+     title String
+     target Int
+     finishDate DateTime
+     description String
+     personType String
+     fullName String
+     town String
+     inn String
+     passport String
+     issuedBy String
+     issuedDate DateTime
+     departmentCode String
+     address String
+     checkingAccount String
+     payeesBank String
+     korAccount String
+     bik String
+     otherData String
+     user User @relation(fields: [userId], references: [id])
+     userId Int
 }
