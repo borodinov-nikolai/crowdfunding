@@ -21,7 +21,6 @@ export class ProjectsController {
   
   })
   create(@Body() body: CreateProjectDto) {
-    console.log(body)
     return this.projectsService.create(body);
   }
 

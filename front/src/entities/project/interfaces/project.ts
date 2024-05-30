@@ -4,13 +4,13 @@
 export interface IProject {
     id: number
     title: string
-    target: number
+    target: bigint
     finishDate: Date
-    description: string
+    description?: string
     personType: string
     fullName: string
     town: string
-    inn: string
+    inn: number
     passport: string
     issuedBy: string
     issuedDate: Date
@@ -20,6 +20,6 @@ export interface IProject {
     payeesBank: string
     korAccount: string
     bik: string
-    otherData: string
+    otherData?: string
     user: number
 }

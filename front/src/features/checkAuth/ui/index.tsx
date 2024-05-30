@@ -1,18 +1,21 @@
 'use client'
 import { useGetUserQuery } from '@/src/entities/user';
-import { usePathname } from 'next/navigation';
+import { usePathname} from 'next/navigation';
+
 import React, { ReactNode } from 'react';
 
 
-const CheckAuth = ({ children }: { children: ReactNode }) => {
-  const {data, isLoading, isSuccess } = useGetUserQuery()
+export const CheckAuth = ({ children }: { children: ReactNode }) => {
+  const { isLoading, isSuccess } = useGetUserQuery()
   const location = usePathname()
   const forbiddenRoutes = [
-    '/account'
+    '/account',
+    '/account/publications',
+    '/account/publications/add-publication'
   ]
 
 
-  if (forbiddenRoutes.includes(location)) {
+  if (location && forbiddenRoutes.includes(location)) {
 
     if (!isLoading && !isSuccess && typeof window !== 'undefined') {
 
@@ -28,5 +31,3 @@ const CheckAuth = ({ children }: { children: ReactNode }) => {
 
 
 }
-
-export default CheckAuth

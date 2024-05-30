@@ -1,5 +1,1 @@
-import CheckAuth from "./ui";
-
-
-
-export {CheckAuth};
+export {CheckAuth} from './ui'

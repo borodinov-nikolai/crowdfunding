@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './AddPublication.module.scss'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import Description from '../components/description'
@@ -17,19 +17,21 @@ import { useRouter } from 'next/navigation'
 
 
 export const AddPublication = () => {
+  const [confirmed, setConfirmed] = useState<boolean>(false)
+  const [showError, setShowError] = useState<boolean>(false)
   const router = useRouter()
   const user = useGetUserQuery()
   const [postProject] = usePostProjectMutation()
-  const {control, watch, handleSubmit} = useForm<IProjectDto>({
+  const {control, watch, handleSubmit, formState: {errors}} = useForm<IProjectDto>({
     defaultValues: {
       title: '',
       target: undefined,
       finishDate: undefined,
       description: '',
-      personType: '',
+      personType: 'Физическое лицо',
       fullName: '',
       town: '',
-      inn: '',
+      inn: undefined,
       passport: '',
       issuedBy: '',
       issuedDate: undefined,
@@ -45,13 +47,25 @@ export const AddPublication = () => {
 
 
   const onSubmit: SubmitHandler<IProjectDto> = (data)=> {
-    if(user?.data?.id) {
+    
+    if(user?.data?.id && confirmed ) {
       postProject({...data, user: user?.data?.id})
       router.push('/account/publications')
+    } 
+
+    if(!confirmed) {
+      setShowError(true)
     }
   }
 
-  console.log(watch('target'))
+  const confirmation = (value: boolean)=> {
+       if(value) {
+        setShowError(false)
+       }
+       setConfirmed(value)
+  } 
+
+ 
 
   return (
     <div className={styles.root} >
@@ -59,13 +73,14 @@ export const AddPublication = () => {
 
          <form onSubmit={handleSubmit(onSubmit)} className={styles.form} action="">
             <h2 className={styles.title} >Добавить проект</h2>
-            <div className={styles.formComponent} ><Description control={control} /></div>
+            <div className={styles.formComponent} ><Description errors={errors} control={control} /></div>
             <h2 className={styles.title} >Об организаторе</h2>
-            <div className={styles.formComponent} ><AboutOrganizer control={control} /></div>
+            <div className={styles.formComponent} ><AboutOrganizer errors={errors} control={control} /></div>
             <h2 className={styles.title} >Расчетный счет</h2>
-            <div className={styles.formComponent} ><CheckingAccount control={control} /> </div>
-            <div className={styles.personalData} >  <Checkbox id='politics' /> <p>Я согласен на <Link href='#' >обработку персональных данных</Link></p> </div>
-            <div  className={styles.submitBtn} ><button type='submit' >Сохраниить</button></div>
+            <div className={styles.formComponent} ><CheckingAccount errors={errors} control={control} /> </div>
+            <div className={styles.personalData} >  <Checkbox checked={confirmed} onChange={(e)=>confirmation(e.target.checked)} id='politics' /> <p>Я согласен на <Link href='#' >обработку персональных данных</Link></p> </div>
+            {showError && <p className={styles.error} > Пожалуйста, подтвердите согласие на обработку данных </p>}
+            <div  className={styles.submitBtn} ><button type='submit' >Сохранить</button></div>
          </form>
         </div>
         </div>

@@ -19,12 +19,13 @@ export const Publications = () => {
                      <button className={styles.addButton} >
                           <FiPlus/><p>Создать публикацию</p>
                      </button>
-                     <div className={styles.cardsHolder} >
+                   </Link>
+                   
+                   <div className={styles.cardsHolder} >
                       {user?.projects?.map((project)=> 
                      <ProjectCard key={project.id} project={project} />
                       )}
                      </div>
-                   </Link>
             </div>
         </div>
     </div>

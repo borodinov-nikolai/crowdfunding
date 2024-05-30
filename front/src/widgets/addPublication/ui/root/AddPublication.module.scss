@@ -29,6 +29,12 @@
         font-size: 20px;
         line-height: 30px;
     }
+
+    :global {
+        .ant-select-selection-item {
+            color: #00000080 !important;
+        }
+    }
 }
 
 .title {
@@ -85,4 +91,11 @@
             background: var(--btn-primary-bg-hover);
         }
     }
+}
+
+.error {
+  font-size: 12px;
+  color: red;
+  margin-top: 5px;
+  text-align: center;
 }

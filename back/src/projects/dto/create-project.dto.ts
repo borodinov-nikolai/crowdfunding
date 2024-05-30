@@ -5,11 +5,11 @@ export class CreateProjectDto {
     title: string
     target: number
     finishDate: Date
-    description: string
+    description?: string
     personType: string
     fullName: string
     town: string
-    inn: string
+    inn: number
     passport: string
     issuedBy: string
     issuedDate: Date
@@ -19,6 +19,6 @@ export class CreateProjectDto {
     payeesBank: string
     korAccount: string
     bik: string
-    otherData: string
+    otherData?: string
     user: number
 }

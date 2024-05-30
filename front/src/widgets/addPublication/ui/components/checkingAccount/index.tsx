@@ -1,15 +1,16 @@
 'use client'
 import React, { FC } from 'react'
 import styles from './CheckingAccount.module.scss'
-import { Control, Controller } from 'react-hook-form'
+import { Control, Controller, FieldErrors } from 'react-hook-form'
 import { IProjectDto } from '@/src/entities/project'
 import { Input  } from 'antd'
 
 interface IProps {
     control: Control<IProjectDto, any>
+    errors: FieldErrors<IProjectDto>
 }
 
-const CheckingAccount: FC<IProps> = ({control}) => {
+const CheckingAccount: FC<IProps> = ({control, errors}) => {
   return (
     <div className={styles.root} >
               <div className={styles.formItem} >
@@ -17,8 +18,12 @@ const CheckingAccount: FC<IProps> = ({control}) => {
         <Controller
         name={'checkingAccount'}
         control={control}
+         rules={{required: 'Это поле обязательно'}}
         render={({field})=> 
-        <Input size='large' id='checkingAccount' style={{width: '727px'}} {...field} placeholder=''  />
+         <div className={styles.InputHolder} >
+          <Input size='large' id='checkingAccount' style={{width: '727px'}} {...field} placeholder=''  />
+          {errors.checkingAccount && <p className={styles.error} >{errors.checkingAccount.message}</p> }
+          </div> 
         }
         />
     </div>
@@ -27,8 +32,12 @@ const CheckingAccount: FC<IProps> = ({control}) => {
         <Controller
         name={'payeesBank'}
         control={control}
+         rules={{required: 'Это поле обязательно'}}
         render={({field})=> 
+         <div className={styles.InputHolder} >
         <Input size='large' id='payeesBank' style={{width: '727px'}} {...field} placeholder=''  />
+        {errors.payeesBank && <p className={styles.error} >{errors.payeesBank.message}</p> }
+         </div> 
         }
         />
     </div>
@@ -37,8 +46,12 @@ const CheckingAccount: FC<IProps> = ({control}) => {
         <Controller
         name={'korAccount'}
         control={control}
+         rules={{required: 'Это поле обязательно'}}
         render={({field})=> 
+         <div className={styles.InputHolder} >
         <Input size='large' id='korAccount' style={{width: '727px'}} {...field} placeholder=''  />
+        {errors.korAccount && <p className={styles.error} >{errors.korAccount.message}</p> }
+         </div> 
         }
         />
     </div>
@@ -47,8 +60,12 @@ const CheckingAccount: FC<IProps> = ({control}) => {
         <Controller
         name={'bik'}
         control={control}
+         rules={{required: 'Это поле обязательно'}}
         render={({field})=> 
-        <Input size='large' id='bik' style={{width: '727px'}} {...field} placeholder=''  />
+         <div className={styles.InputHolder} >
+         <Input size='large' id='bik' style={{width: '727px'}} {...field} placeholder=''  />
+         {errors.bik && <p className={styles.error} >{errors.bik.message}</p> }
+         </div> 
         }
         />
     </div>
@@ -58,7 +75,9 @@ const CheckingAccount: FC<IProps> = ({control}) => {
         name={'otherData'}
         control={control}
         render={({field})=> 
-        <Input size='large' id='otherData' style={{width: '727px'}} {...field} placeholder=''  />
+         <div className={styles.InputHolder} >
+            <Input size='large' id='otherData' style={{width: '727px'}} {...field} placeholder=''  />
+         </div> 
         }
         />
     </div>
